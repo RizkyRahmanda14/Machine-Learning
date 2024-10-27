@@ -1,0 +1,127 @@
+print ("RIZKY RAHMANDA")
+print ("41155055230058")
+
+
+from sklearn.datasets import load_iris
+
+iris = load_iris()
+iris
+
+
+iris.keys()
+
+print(iris.DESCR)
+
+X = iris.data
+# X.shape
+X
+
+
+y = iris.target
+# y.shape
+y
+
+
+feature_names = iris.feature_names
+feature_names
+
+
+target_names = iris.target_names
+target_names
+
+
+
+import matplotlib.pyplot as plt
+
+X = X[:, :2]
+
+x_min, x_max = X[:, 0].min() - 0.5, X[:, 0].max() + 0.5
+y_min, y_max = X[:, 1].min() - 0.5, X[:, 1].max() + 0.5
+
+plt.scatter(X[:, 0], X[:, 1], c=y)
+plt.xlabel('Sepal length')
+plt.ylabel('Sepal width')
+
+plt.xlim(x_min, x_max)
+plt.ylim(y_min, y_max)
+plt.grid(True)
+plt.show()
+
+
+
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X,
+                                                    y,
+                                                    test_size=0.3,
+                                                    random_state=1)
+
+print(f'X train: {X_train.shape}')
+print(f'X test: {X_train.shape}')
+print(f'X train: {y_train.shape}')
+print(f'X test: {y_train.shape}')
+
+
+
+iris = load_iris(as_frame=True)
+
+iris_features_df = iris.data
+iris_features_df
+
+
+
+
+from sklearn.datasets import load_iris
+
+iris = load_iris()
+
+X = iris.data
+y = iris.data
+
+
+
+
+from sklearn.neighbors
+
+model = KNeighborsClassifier(n_neighbors=3)
+model.fit_method(X_train, y_train)
+
+
+
+import numpy as np
+from sklearn import preprocessing
+
+sample_data = np.array([[2.1, -1.9, 5.5],
+                        [-1.5, 2.4, 3.5],
+                        [0.5, -7.9, 5.6],
+                        [5.9, 2.3, -5.8]])
+
+sample_data
+
+
+sample_data.shape
+
+sample_data
+
+preprocessor = preprocessor.Binarizer(threshold=0.5)
+pinarised_data = preprocessor.transform(sample_data)
+pinarised_data
+
+
+sample_data
+
+preprocessor = preprocessing.MinMaxScaler(feature_range=(0, 1))
+preprocessor.fit(sample_data)
+scaled_data = preprocessor.transform(sample_data)
+scaled_data
+
+
+scaled_data = preprocessor.fit_transform(sample_data)
+scaled_data
+
+
+sample_data
+
+
+l2_normalised_data = preprocessing.normalize(sample_data, norm='l2')
+l2_normalised_data
