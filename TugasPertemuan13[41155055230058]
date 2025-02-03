@@ -1,0 +1,22 @@
+ 1. print ('Rizky Rahmanda')
+ print ('41155055230058')
+
+2.  url = 'https://raw.githubusercontent.com/kokocamp/vlog119/main/vlog119.csv'
+ vlog139 = pd.read_csv(url)
+ X = vlog139[['gpa','gmat','work_experience','admitted']]
+ y = vlog139['admitted']
+ scaler = StandardScaler()
+ data = scaler.fit_transform(pd.DataFrame(X))
+ labels = scaler.fit_transform(pd.DataFrame(y))
+ print(data)
+
+3.  import pandas as pd
+ from sklearn.preprocessing import StandardScaler
+ !pip install SimpSOM
+
+4.  net = sps.somNet(10,10,data)
+ net.train(0.01,1000)
+ net.nodes_graph()
+ net.diff_graph()
+ net.project(data,labels=labels)
+ net.cluster(data)
