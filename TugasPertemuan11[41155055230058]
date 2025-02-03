@@ -1,0 +1,88 @@
+#table logika AND 2 input
+ """
+ x1   x2   y
+ 1    1    1
+ 1    0    0
+ 0    0    0
+ 0    0    0
+ """
+ {"type":"string"}
+ #machine learning
+ import keras
+ import numpy as np
+ #model
+ model = keras.Sequential([keras.layers.Dense(units=1, 
+input_shape=[2])])
+ #model compile
+ model.compile(optimizer='sgd', loss='mean_squared_error')
+
+ #set data
+ xs = np.array([[1, 1], [1, 0], [0, 1],[0, 0]],dtype=int)
+ ys = np.array([1, 1, 0, 0],dtype=int)
+ #tampilkan arsitektur awal
+ model.summary()
+ Model: "sequential"
+
+
+
+
+2.  #cek bobot model awal
+ weights = model.get_weights()
+ weights
+ [array([[ 0.9850391 ],
+        [-0.01473554]], dtype=float32),
+ array([0.01761203], dtype=float32)]
+ #training
+ model.fit(xs, ys, epochs=1000)
+
+3.  #test
+ data = [1,0]
+ answer = model.predict([data])
+ print(answer)
+
+4.  #table data
+ """
+w1 = 2
+ w2 = 4
+ x1   x2   y
+ 2    3    16
+ 4    1    12
+ 5    4    28
+ 7    5    34
+ 8    2    24
+ 2    1    8
+ 4    9    44
+ 8    2    24
+ 7    1    18
+ 6    5    32
+ 1    1    6
+ 3    2    14
+ """
+ {"type":"string"}
+ #model
+ model2 = keras.Sequential([keras.layers.Dense(units=1, 
+input_shape=[2])])
+ #model compile
+ model2.compile(optimizer='sgd', loss='mean_squared_error')
+ #set data
+ xs = np.array([[2, 3], [4, 1], [5, 4], [7, 5], [8, 2], [2, 1], [4, 9], 
+[8, 2], [7, 1], [6, 5], [1, 1],])
+ ys = np.array([16, 12, 28, 34, 24, 8, 44, 24, 18, 32, 6, 
+14],dtype=int)
+
+
+5.  #cek bobot model awal
+ weights = model2.get_weights()
+ weights
+ [array([[-1.0911337],
+        [ 0.5086713]], dtype=float32),
+ array([0.], dtype=float32)]
+ #training
+ model2.fit(xs, ys, epochs=1000)
+
+
+6.  #test
+ data = [3,3]
+ answer = model2.predict([data])
+ print(answer)
+ #seharusnya 3*2 + 3*4 = 18
